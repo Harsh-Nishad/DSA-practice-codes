@@ -37,6 +37,7 @@ bool search(int ele)
     if (root->data == ele)
     {
         return 1;
+        w
     }
     else if (ele <= root->data)
     {
