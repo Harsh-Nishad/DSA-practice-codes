@@ -116,7 +116,7 @@ int main()
     root = insert(5, root);
     ///////////////////////////////LEVEL ORDER TRANSVERSAL////////
     //level_order(root);
-    // pre_order(root);
+    pre_order(root);
     // in_order(root);
     // post_order(root);
 
