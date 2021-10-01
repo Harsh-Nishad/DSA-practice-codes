@@ -32,25 +32,41 @@ node *insert(int val, node *root)
     }
     return root;
 }
+// int pre_order(node *root)
+// {
 
-int diff(int a, int b)
-{
-    int d = a - b;
-    return d;
-}
-int balance_tree_check(node *root)
+//     if (root == NULL)
+//     {
+//         return 0;
+//     }
+//     cout << root->data << " ";
+//     pre_order(root->left);
+//     pre_order(root->right);
+//     return 0;
+// }
+
+int height_check(node *root)
+
 {
     if (root == NULL)
     {
-        cout << "error\n";
+        return 0;
     }
-    int lheight = balance_tree_check(root->left);
-    int rheight = balance_tree_check(root->right);
-    int data = diff(lheight, rheight);
-    // int data = diff(balance_tree_check(root->left), balance_tree_check(root->right));
-    return data;
+    int lheight = height_check(root->left);
+    int rheight = height_check(root->right);
+    if (abs(lheight - rheight) <= 1)
+    {
+        return flag + 1;
+    }
+    else
+        return flag;
 }
-
+int balance_t_check(node *root)
+{
+    int flag = 1;
+    height_check(root, &flag);
+    return flag;
+}
 int main()
 {
 
@@ -59,21 +75,23 @@ int main()
     root = insert(2, root);
     root = insert(3, root);
     root = insert(4, root);
-    root = insert(5, root);
+    //root = insert(5, root);
     root = insert(6, root);
     root = insert(7, root);
     root = insert(8, root);
     root = insert(9, root);
     root = insert(10, root);
 
-    if (balance_tree_check(root) <= 1)
+    if (balance_tree_check(root) == 1)
     {
+
         cout << "The tree is a balanced tree\n";
     }
     else
     {
         cout << "Not a balanced tree\n";
     }
+    //pre_order(root);
 
     return 0;
 }
