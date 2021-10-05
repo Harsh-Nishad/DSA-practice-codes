@@ -55,11 +55,6 @@ int height_check(node *root)
     int lheight = height_check(root->left);
     int rheight = height_check(root->right);
     if (abs(lheight - rheight) <= 1)
-    {
-        return flag + 1;
-    }
-    else
-        return flag;
 }
 int balance_t_check(node *root)
 {
