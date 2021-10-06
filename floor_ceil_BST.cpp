@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+//both algorithms have the complexcity of O(logn)
 class node
 {
 public:
@@ -36,29 +36,50 @@ node *insert(int val, node *root)
 }
 int ceil_search(node *root, int ele)
 {
-    if (root == NULL)
+    int ceil = -1;
+    while (root)
     {
-        return 0;
-    }
-    if (root->data >= ele)
-    {
-        if (root->left == NULL && root->right == NULL)
+        if (root->data == ele)
         {
-            return root->data;
+            ceil = root->data;
+            return ceil;
+        }
+        else if (ele > root->data)
+        {
+            root = root->right;
         }
         else
-            ceil_search(root->left, ele);
-    }
-    else if (root->data < ele)
-    {
-        if (root->left == NULL && root->right == NULL)
         {
-            return root->data;
+            ceil = root->data;
+            root = root->left;
         }
-        else
-            ceil_search(root->right, ele);
     }
+    return ceil;
 }
+
+int floor_search(node *root, int ele)
+{
+    int floor = -1;
+    while (root)
+    {
+        if (root->data == ele)
+        {
+            floor = root->data;
+            return floor;
+        }
+        else if (ele < root->data)
+        {
+            root = root->left;
+        }
+        else
+        {
+            floor = root->data;
+            root = root->right;
+        }
+    }
+    return floor;
+}
+
 int main()
 {
     node *root = NULL;
@@ -69,6 +90,7 @@ int main()
     root = insert(6, root);
     root = insert(11, root);
     root = insert(14, root);
-    cout << "the ceil value is :" << ceil_search(root, 4);
+    cout << "the ceil value is :" << ceil_search(root, 4) << endl;
+    cout << "the floor value is :" << floor_search(root, 4);
     return 0;
 }
