@@ -67,7 +67,7 @@ void merge(int arr[], int lb, int mid, int ub)
         }
         k++;
     }
-    //////////////////left is exusted
+
     if (i > mid)
     {
         while (j <= ub)
