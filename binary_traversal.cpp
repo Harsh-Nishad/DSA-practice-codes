@@ -115,10 +115,13 @@ int main()
     root = insert(4, root);
     root = insert(5, root);
     ///////////////////////////////LEVEL ORDER TRANSVERSAL////////
-    //level_order(root);
+    // level_order(root);
     pre_order(root);
-    // in_order(root);
-    // post_order(root);
+    cout << endl;
+    in_order(root);
+    cout << endl;
+    post_order(root);
+    cout << endl;
 
     return 0;
 }

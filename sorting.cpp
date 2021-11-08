@@ -97,61 +97,61 @@ using namespace std;
 //     return 0;
 // }
 
-/////////////////////////////////////////////////quick sort/////////////
-// void swap_q(int *b, int *c)
-// {
-//     int temp = *b;
-//     *b = *c;
-//     *c = temp;
-// }
+///////////////////////////////////////////////quick sort/////////////
+void swap_q(int *b, int *c)
+{
+    int temp = *b;
+    *b = *c;
+    *c = temp;
+}
 
-// int partition(int arr[], int i, int j)
-// {
+int partition(int arr[], int i, int j)
+{
 
-//     int piviot = arr[i];
-//     while (i < j)
-//     {
-//         while (piviot > arr[i])
-//         {
-//             i++;
-//         }
-//         while (piviot < arr[j])
-//         {
-//             j--;
-//         }
-//         swap_q(&arr[i], &arr[j]);
-//     }
-//     swap_q(&piviot, &arr[j]);
+    int piviot = arr[i];
+    while (i < j)
+    {
+        while (piviot > arr[i])
+        {
+            i++;
+        }
+        while (piviot < arr[j])
+        {
+            j--;
+        }
+        swap_q(&arr[i], &arr[j]);
+    }
+    swap_q(&piviot, &arr[j]);
 
-//     return j;
-// }
-// void quick_sort(int arr[], int i, int j)
-// {
+    return j;
+}
+void quick_sort(int arr[], int i, int j)
+{
 
-//     if (i < j)
-//     {
-//         int piviot = partition(arr, i, j);
-//         quick_sort(arr, i, (piviot - 1));
-//         quick_sort(arr, (piviot + 1), j);
-//     }
-// }
-// void display(int arr[])
-// {
-//     for (int i = 0; i < 5; i++)
-//     {
-//         cout << arr[i] << " ";
-//     }
-// }
+    if (i < j)
+    {
+        int piviot = partition(arr, i, j);
+        quick_sort(arr, i, (piviot - 1));
+        quick_sort(arr, (piviot + 1), j);
+    }
+}
+void display(int arr[])
+{
+    for (int i = 0; i < 5; i++)
+    {
+        cout << arr[i] << " ";
+    }
+}
 
-// int main()
-// {
-//     int arr[6] = {1, 5, 2, 6, 3};
-//     int i = 0, j = 4;
-//     quick_sort(arr, i, j);
-//     display(arr);
+int main()
+{
+    int arr[6] = {1, 5, 2, 6, 3};
+    int i = 0, j = 4;
+    quick_sort(arr, i, j);
+    display(arr);
 
-//     return 0;
-// }
+    return 0;
+}
 
 void display(int arr[])
 {
